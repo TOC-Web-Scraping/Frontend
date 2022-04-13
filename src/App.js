@@ -5,7 +5,7 @@ import Teams from "./pages/Teams/Teams";
 import Players from "./pages/Players/Players";
 import Team from "./pages/Team/Team";
 import Player from "./pages/Player/Player";
-
+import "./App.css";
 function App() {
   return (
     <div>
