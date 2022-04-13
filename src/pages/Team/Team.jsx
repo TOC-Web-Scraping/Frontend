@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React from "react";
+import { useParams } from "react-router-dom";
 function Team() {
-  return (
-    <div>Team</div>
-  )
+  const { id } = useParams();
+  return <div>Team : {id}</div>;
 }
 
-export default Team
+export default Team;

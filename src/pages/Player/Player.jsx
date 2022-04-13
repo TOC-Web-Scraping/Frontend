@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React from "react";
+import { useParams } from "react-router-dom";
 function Player() {
-  return (
-    <div>Player</div>
-  )
+  const { id } = useParams();
+  return <div>Player : {id}</div>;
 }
 
-export default Player
+export default Player;
