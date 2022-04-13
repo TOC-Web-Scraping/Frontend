@@ -3,8 +3,12 @@ import NavBar from "./layout/NavBar/NavBar";
 import Home from "./pages/Home/Home";
 import Teams from "./pages/Teams/Teams";
 import Players from "./pages/Players/Players";
+import Maps from "./pages/Maps/Maps";
+import Agents from "./pages/Agents/Agents";
 import Team from "./pages/Team/Team";
 import Player from "./pages/Player/Player";
+import Map from "./pages/Map/Map";
+import Agent from "./pages/Agent/Agent";
 import "./App.css";
 function App() {
   return (
@@ -15,8 +19,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/players" element={<Players />} />
+          <Route path="/maps" element={<Maps />} />
+          <Route path="/agents" element={<Agents />} />
           <Route path="/team/:id" element={<Team />} />
           <Route path="/player/:id" element={<Player />} />
+          <Route path="/map/:id" element={<Map />} />
+          <Route path="/agent/:id" element={<Agent />} />
         </Routes>
       </BrowserRouter>
     </div>
