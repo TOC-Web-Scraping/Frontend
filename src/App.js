@@ -8,7 +8,7 @@ import Agents from "./pages/Agents/Agents";
 import Team from "./pages/Team/Team";
 import Player from "./pages/Player/Player";
 import Map from "./pages/Map/Map";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 function App() {
   return (
