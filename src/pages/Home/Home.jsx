@@ -35,25 +35,34 @@ function Home() {
 }
 
 const Container = styled.div`
-  margin: 50px auto;
-  width: 70%;
+  margin: 60px auto;
+  max-width: 1200px;
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50% 25%;
+  grid-template-rows: minmax(300px, 40vh) minmax(150px, 20vh);
   grid-template-areas:
     "team player"
     "map agent";
   grid-column-gap: 30px;
   grid-row-gap: 40px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-areas:
+      "team"
+      "player"
+      "map"
+      "agent";
+  }
 `;
 
 const Item = styled.div`
   grid-area: ${(props) => props.gridArea};
-  background-color: #494343;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
-
+  filter: brightness(0.8);
   h1 {
     font-size: 40px;
     color: white;
@@ -68,6 +77,10 @@ const Item = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+  }
+
+  &:hover {
+    filter: brightness(1);
   }
 `;
 
