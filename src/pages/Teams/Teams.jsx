@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDebounce } from "use-debounce";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +9,9 @@ import { Pagination } from "react-bootstrap";
 import BackButton from "../../components/BackButton/BackButton";
 
 function Teams() {
-  const { data: teams, isLoading, error, isError } = useTeams();
+  const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 500);
+  const { data: teams, isLoading, error, isError } = useTeams(debouncedSearch);
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   if (isLoading) return <Loader />;
@@ -56,37 +59,50 @@ function Teams() {
       );
     });
 
+  const onSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
-    <Container>
-      <BackButton handleBackClick={() => navigate("/")} />
-      <SearchBox>
-        <AiOutlineSearch size={30} />
-        <SearchInput type="text" placeholder="Search" />
-      </SearchBox>
-      <TeamText>Teams</TeamText>
-      <CardContainer>
-        {teams
-          .filter((_, index) => {
-            return index >= 8 * (currentPage - 1) && index < 8 * currentPage;
-          })
-          .map((team, index) => {
-            return (
-              <div
-                className="card"
-                key={index}
-                onClick={() => navigate(`/team/${team.url}`)}
-              >
-                <div>{team.name}</div>
-              </div>
-            );
-          })}
-      </CardContainer>
-      <StyledPagination>
-        <Pagination.Prev onClick={handlePrev} />
-        {paginationElements}
-        <Pagination.Next onClick={handleNext} />
-      </StyledPagination>
-    </Container>
+    <div>
+      <Container>
+        <BackButton handleBackClick={() => navigate("/")} />
+        <SearchBox>
+          <AiOutlineSearch size={30} />
+          <SearchInput
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={onSearchChange}
+          />
+        </SearchBox>
+        <TeamText>Teams</TeamText>
+        <CardContainer>
+          {teams
+            .filter((_, index) => {
+              return index >= 8 * (currentPage - 1) && index < 8 * currentPage;
+            })
+            .map((team, index) => {
+              return (
+                <div
+                  className="card"
+                  key={team.url}
+                  onClick={() => navigate(`/team/${team.url}`)}
+                >
+                  <div>{team.name}</div>
+                </div>
+              );
+            })}
+        </CardContainer>
+        {teams.length > 8 && (
+          <StyledPagination>
+            <Pagination.Prev onClick={handlePrev} />
+            {paginationElements}
+            <Pagination.Next onClick={handleNext} />
+          </StyledPagination>
+        )}
+      </Container>
+    </div>
   );
 }
 

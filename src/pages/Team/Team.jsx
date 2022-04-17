@@ -11,7 +11,6 @@ function Team() {
   const { id } = useParams();
   const { data: team, isLoading, error, isError } = useTeam(id);
   const navigate = useNavigate();
-  const players = Array(5).fill(0);
 
   if (isLoading) return <Loader />;
   if (isError)
@@ -38,9 +37,9 @@ function Team() {
               </tr>
             </thead>
             <tbody>
-              {team.achievements.map((achievement) => {
+              {team.achievements.map((achievement, idx) => {
                 return (
-                  <tr>
+                  <tr key={idx}>
                     <td>{achievement.date}</td>
                     <td>{achievement.placement}</td>
                     <td>{achievement.tournament}</td>
@@ -54,14 +53,15 @@ function Team() {
       </TeamContainer>
       <h4>Player Roster</h4>
       <PlayerContainer>
-        {players.map((player, idx) => {
+        {team.players.map((player) => {
           return (
             <div
+              key={player.url}
               onClick={() => {
-                navigate(`/player/${idx}`);
+                navigate(`/player/${player.url}`);
               }}
             >
-              <p>Player Name</p>
+              <p>{player.name}</p>
             </div>
           );
         })}
