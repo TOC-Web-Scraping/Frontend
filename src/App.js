@@ -8,25 +8,24 @@ import Agents from "./pages/Agents/Agents";
 import Team from "./pages/Team/Team";
 import Player from "./pages/Player/Player";
 import Map from "./pages/Map/Map";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/teams" element={<Teams />} />
-          <Route path="/players" element={<Players />} />
-          <Route path="/maps" element={<Maps />} />
-          <Route path="/agents" element={<Agents />} />
-          <Route path="/team/:id" element={<Team />} />
-          <Route path="/player/:id" element={<Player />} />
-          <Route path="/map/:id" element={<Map />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/players" element={<Players />} />
+        <Route path="/maps" element={<Maps />} />
+        <Route path="/agents" element={<Agents />} />
+        <Route path="/team/:id" element={<Team />} />
+        <Route path="/player/:id" element={<Player />} />
+        <Route path="/map/:id" element={<Map />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
