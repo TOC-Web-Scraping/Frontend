@@ -2,7 +2,93 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useTeams } from "../../hooks/useTeams";
+import Loader from "../../components/Loader/Loader";
 import { Pagination } from "react-bootstrap";
+import BackButton from "../../components/BackButton/BackButton";
+
+function Teams() {
+  const { data: teams, isLoading, error, isError } = useTeams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
+  if (isLoading) return <Loader />;
+  if (isError)
+    return (
+      <Container>
+        <h1 style={{ color: "white" }}>Error : {error.message}</h1>
+      </Container>
+    );
+
+  const handlePrev = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < teams.length / 8) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(teams.length / 8); i++) {
+    pageNumbers.push(i);
+  }
+  const paginationElements = pageNumbers
+    .filter((number) => {
+      if (currentPage < 3) {
+        return number <= 5;
+      } else if (currentPage > pageNumbers.length - 3) {
+        return number >= pageNumbers.length - 4;
+      }
+      return number >= currentPage - 2 && number <= currentPage + 2;
+    })
+    .map((number) => {
+      return (
+        <Pagination.Item
+          key={number}
+          active={number === currentPage}
+          onClick={() => setCurrentPage(number)}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    });
+
+  return (
+    <Container>
+      <BackButton handleBackClick={() => navigate("/")} />
+      <SearchBox>
+        <AiOutlineSearch size={30} />
+        <SearchInput type="text" placeholder="Search" />
+      </SearchBox>
+      <TeamText>Teams</TeamText>
+      <CardContainer>
+        {teams
+          .filter((_, index) => {
+            return index >= 8 * (currentPage - 1) && index < 8 * currentPage;
+          })
+          .map((team, index) => {
+            return (
+              <div
+                className="card"
+                key={index}
+                onClick={() => navigate(`/team/${team.url}`)}
+              >
+                <div>{team.name}</div>
+              </div>
+            );
+          })}
+      </CardContainer>
+      <StyledPagination>
+        <Pagination.Prev onClick={handlePrev} />
+        {paginationElements}
+        <Pagination.Next onClick={handleNext} />
+      </StyledPagination>
+    </Container>
+  );
+}
 
 const Container = styled.div`
   margin: 40px auto;
@@ -38,6 +124,7 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   margin-top: 30px;
+  position: relative;
 
   @media (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
@@ -47,13 +134,21 @@ const CardContainer = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 
-  div {
+  .card {
     background-color: #ccc;
     border-radius: 10px;
     padding: 10px;
     height: 320px;
     cursor: pointer;
   }
+`;
+
+const TeamText = styled.h1`
+  position: absolute;
+  top: 0;
+  right: 10px;
+  color: #fff;
+  line-height: 0.8;
 `;
 
 const StyledPagination = styled(Pagination)`
@@ -70,88 +165,5 @@ const StyledPagination = styled(Pagination)`
     color: #000;
   }
 `;
-
-const TeamText = styled.h1`
-  position: absolute;
-  top: 0;
-  right: 10px;
-  color: #fff;
-  line-height: 0.8;
-`;
-
-function Teams() {
-  const navigate = useNavigate();
-  const items = [];
-  for (let i = 0; i < 200; i++) {
-    items.push(i);
-  }
-
-  const [page, setPage] = useState(1);
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(items.length / 8); i++) {
-    pageNumbers.push(i);
-  }
-
-  const handlePrev = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (page < pageNumbers.length) {
-      setPage(page + 1);
-    }
-  };
-
-  const cardElements = items
-    .filter((item, index) => {
-      return index >= (page - 1) * 8 && index < page * 8;
-    })
-    .map((item, index) => {
-      return (
-        <div key={index} onClick={() => navigate(`/team/${item}`)}>
-          <h1>{item}</h1>
-        </div>
-      );
-    });
-
-  const paginationElements = pageNumbers
-    .filter((number) => {
-      if (page < 3) {
-        return number <= 5;
-      } else if (page > pageNumbers.length - 3) {
-        return number >= pageNumbers.length - 4;
-      }
-      return number >= page - 2 && number <= page + 2;
-    })
-    .map((number) => {
-      return (
-        <Pagination.Item
-          key={number}
-          active={number === page}
-          onClick={() => setPage(number)}
-        >
-          {number}
-        </Pagination.Item>
-      );
-    });
-
-  return (
-    <Container>
-      <SearchBox>
-        <AiOutlineSearch size={30} />
-        <SearchInput type="text" placeholder="Search" />
-      </SearchBox>
-      <TeamText>Teams</TeamText>
-      <CardContainer>{cardElements}</CardContainer>
-      <StyledPagination>
-        <Pagination.Prev onClick={handlePrev} />
-        {paginationElements}
-        <Pagination.Next onClick={handleNext} />
-      </StyledPagination>
-    </Container>
-  );
-}
 
 export default Teams;
