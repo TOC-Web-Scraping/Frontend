@@ -2,7 +2,7 @@ import React from 'react'
 
 function CardPlayer() {
   return (
-    <div>CardPlayer</div>
+    <div className="card__player"></div>
   )
 }
 
