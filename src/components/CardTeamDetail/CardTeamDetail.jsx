@@ -1,20 +1,16 @@
 import React from 'react'
-
-function CardTeamDetail({player}) {
+import './CardTeamDetail.css'
+function CardTeamDetail({team}) {
   return (
     <div className="detail-card-container">
     <div className="detail-image-container">
-      <img src={""} />
+      <img src={team.logo} />
     </div>
-    <div className="detail-cardtitle">{player.name}</div>
+    <div className="detail-cardtitle">{team.name}</div>
     <div className="detail-cardbody">
-    <b>Location : </b>{player.location}<br/>
-    <b>Region : </b>{player.region}<br/>
-    <b>CEO: </b>{player.ceo}<br/>
-    <b>Manager: </b>{player.manager}<br/>
-    <b>In-Game Leader: </b>{player.igl}<br/>
-    <b>Total Winnings: </b>{player.total}<br/>
-    <b>Founded : </b>{player.founded}<br/>
+    <b>Location : </b>{team.location}<br/>
+    <b>Region : </b>{team.region}<br/>
+    <b>Total Winnings: </b>{team.totalWinnings}<br/>
     </div>
   </div>
   )

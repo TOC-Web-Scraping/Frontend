@@ -8,7 +8,7 @@ import { useTeams } from "../../hooks/useTeams";
 import Loader from "../../components/Loader/Loader";
 import { Pagination } from "react-bootstrap";
 import BackButton from "../../components/BackButton/BackButton";
-
+import CardTeam from "../../components/CardTeam/CardTeam";
 
 function Teams() {
   const [search, setSearch] = useState("");
@@ -91,7 +91,9 @@ function Teams() {
                   key={team.url}
                   onClick={() => navigate(`/team/${team.url}`)}
                 >
-                  <div>{team.name}</div>
+                  <CardTeam
+                    team={team}
+                  />
                 </div>
               );
             })}
@@ -153,11 +155,10 @@ const CardContainer = styled.div`
   }
 
   .card {
-    background-color: #ccc;
     border-radius: 10px;
-    padding: 10px;
     height: 320px;
     cursor: pointer;
+    
   }
 `;
 

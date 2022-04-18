@@ -1,21 +1,22 @@
 import React from "react";
 import './CardPlayer.css'
-function CardPlayer({ title, imageUrl, body }) {
+function CardPlayer({ player }) {
+  
   return (
     <div className="card-container">
       <div className="image-container">
-        <img src={imageUrl} />
+        <img src='https://play-lh.googleusercontent.com/6f6MrwfRIEnR-OIKIt_O3VdplItbaMqtqgCNSOxcfVMCKGKsOdBK5XcI6HZpjssnB2Y' />
       </div>
       <div className="cardtitle">
-        {title}
+        {player.name}
         <div className="icon-team">
-        <img src={imageUrl} />
+        <img src={player.imageUrl} />
         </div>
       </div>
       <div className="cardbody">
-        {body}
+        {player.country}
         <div className="icon-region">
-        <img src={imageUrl} />
+        <img src={player.imageUrl} />
         </div>
       </div>
     </div>

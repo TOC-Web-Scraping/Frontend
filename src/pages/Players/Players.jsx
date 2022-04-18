@@ -38,14 +38,12 @@ function Players() {
   return (
     <div>
       Players
-      {/* <CardPlayer 
-        title='Sentinels'
-        imageUrl='https://play-lh.googleusercontent.com/6f6MrwfRIEnR-OIKIt_O3VdplItbaMqtqgCNSOxcfVMCKGKsOdBK5XcI6HZpjssnB2Y'
-        body='North America'
-      /> */}
-      <CardPlayerDetails
+      <CardPlayer 
         player={player}
       />
+      {/* <CardPlayerDetails
+        player={player}
+      /> */}
     </div>
   );
 }

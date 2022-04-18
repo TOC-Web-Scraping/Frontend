@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useTeam } from "../../hooks/useTeam";
 import Loader from "../../components/Loader/Loader";
 import BackButton from "../../components/BackButton/BackButton";
+import CardTeamDetail from "../../components/CardTeamDetail/CardTeamDetail";
+import CardPlayer from "../../components/CardPlayer/CardPlayer";
 
 function Team() {
   const { id } = useParams();
@@ -24,8 +26,11 @@ function Team() {
       <BackButton handleBackClick={() => navigate("/teams")} />
       <h2>{team.name}</h2>
       <TeamContainer>
-        <div>{team.name}</div>
-        <div>
+        <div className="card"><CardTeamDetail
+          team={team}
+        />
+        </div>
+        <div className="achievement">
           <h5>Achievements</h5>
           <Table striped bordered hover>
             <thead>
@@ -61,7 +66,9 @@ function Team() {
                 navigate(`/player/${player.url}`);
               }}
             >
-              <p>{player.name}</p>
+              <CardPlayer
+                player={player}
+              />
             </div>
           );
         })}
@@ -94,14 +101,21 @@ const TeamContainer = styled.div`
   grid-gap: 20px;
   margin-top: 30px;
 
-  div {
+  .card {
     background-color: #ccc;
+    border-radius: 10px;
+    
+    height: 400px;
+    cursor: pointer;
+  }
+ .achievement{
+  background-color: #ccc;
     border-radius: 10px;
     padding: 10px;
     height: 400px;
     cursor: pointer;
     overflow: auto;
-  }
+ } 
 `;
 
 const PlayerContainer = styled.div`
