@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useDebounce } from "use-debounce";
 import styled from "styled-components";
@@ -7,6 +8,7 @@ import { useTeams } from "../../hooks/useTeams";
 import Loader from "../../components/Loader/Loader";
 import { Pagination } from "react-bootstrap";
 import BackButton from "../../components/BackButton/BackButton";
+
 
 function Teams() {
   const [search, setSearch] = useState("");

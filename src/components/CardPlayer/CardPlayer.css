@@ -1,0 +1,50 @@
+.card-container{
+    position: absolute;
+    width: 280px;
+    height: 290px;
+    overflow: hidden;
+    background: #C4C4C4;
+    border-radius: 10px;
+    text-align: center;
+}
+.image-container{
+    justify-content: center;
+    width: 200px;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.cardtitle{
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.cardbody{
+    font-size: 15px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+}
+
+.card-container:hover{
+    transform: scale(1.01);
+}
+.icon-team{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+.icon-region{
+    width: 25px;
+    height: 20px;
+    overflow: hidden;
+    margin-top: 2px;
+    margin-left: 10px;
+}

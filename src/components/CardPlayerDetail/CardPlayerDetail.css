@@ -1,0 +1,29 @@
+.detail-card-container{
+    background: #C4C4C4;
+    position: absolute;
+    width: 320px;
+    height: 470px;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+}
+.detail-image-container{
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.detail-cardtitle{
+    font-size: 24px;
+    font-weight: bold;
+}
+.detail-cardbody{
+    justify-content:center;
+    text-align: left;
+    
+}
