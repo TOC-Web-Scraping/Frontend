@@ -9,15 +9,11 @@ function CardPlayer({ player }) {
       </div>
       <div className="cardtitle">
         {player.name}
-        <div className="icon-team">
-        <img src={player.imageUrl} />
-        </div>
+        <img src='https://play-lh.googleusercontent.com/6f6MrwfRIEnR-OIKIt_O3VdplItbaMqtqgCNSOxcfVMCKGKsOdBK5XcI6HZpjssnB2Y' />
       </div>
       <div className="cardbody">
         {player.country}
-        <div className="icon-region">
-        <img src={player.imageUrl} />
-        </div>
+        <img src='https://play-lh.googleusercontent.com/6f6MrwfRIEnR-OIKIt_O3VdplItbaMqtqgCNSOxcfVMCKGKsOdBK5XcI6HZpjssnB2Y' />
       </div>
     </div>
   );

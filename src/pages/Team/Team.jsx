@@ -60,7 +60,7 @@ function Team() {
       <PlayerContainer>
         {team.players.map((player) => {
           return (
-            <div
+            <div className="card"
               key={player.url}
               onClick={() => {
                 navigate(`/player/${player.url}`);
@@ -124,10 +124,9 @@ const PlayerContainer = styled.div`
   margin-top: 10px;
   justify-content: center;
 
-  div {
+  .card {
     background-color: #ccc;
     border-radius: 10px;
-    padding: 10px;
     height: 250px;
     max-width: 250px;
     cursor: pointer;
