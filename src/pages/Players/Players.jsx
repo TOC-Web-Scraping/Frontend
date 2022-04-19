@@ -1,6 +1,10 @@
 import React from "react";
 import CardPlayer from "../../components/CardPlayer/CardPlayer";
-import CardPlayerDetails from "../../components/CardPlayerDetail/CardPlayerDetail";
+import { useDebounce } from "use-debounce";
+
+
+
+
 function Players() {
   const player = {
     url: "Asuna",
@@ -41,9 +45,6 @@ function Players() {
       <CardPlayer 
         player={player}
       />
-      {/* <CardPlayerDetails
-        player={player}
-      /> */}
     </div>
   );
 }
