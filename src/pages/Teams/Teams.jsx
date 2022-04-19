@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useDebounce } from "use-debounce";
 import styled from "styled-components";
@@ -16,7 +15,6 @@ function Teams() {
   const { data: teams, isLoading, error, isError } = useTeams(debouncedSearch);
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
-  if (isLoading) return <Loader />;
   if (isError)
     return (
       <Container>
@@ -31,13 +29,13 @@ function Teams() {
   };
 
   const handleNext = () => {
-    if (currentPage < teams.length / 8) {
+    if (currentPage < teams?.length / 8) {
       setCurrentPage(currentPage + 1);
     }
   };
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(teams.length / 8); i++) {
+  for (let i = 1; i <= Math.ceil(teams?.length / 8); i++) {
     pageNumbers.push(i);
   }
   const paginationElements = pageNumbers
@@ -79,9 +77,10 @@ function Teams() {
           />
         </SearchBox>
         <TeamText>Teams</TeamText>
+        {isLoading && <Loader />}
         <CardContainer>
           {teams
-            .filter((_, index) => {
+            ?.filter((_, index) => {
               return index >= 8 * (currentPage - 1) && index < 8 * currentPage;
             })
             .map((team, index) => {
@@ -91,14 +90,12 @@ function Teams() {
                   key={team.url}
                   onClick={() => navigate(`/team/${team.url}`)}
                 >
-                  <CardTeam
-                    team={team}
-                  />
+                  <CardTeam team={team} />
                 </div>
               );
             })}
         </CardContainer>
-        {teams.length > 8 && (
+        {teams?.length > 8 && (
           <StyledPagination>
             <Pagination.Prev onClick={handlePrev} />
             {paginationElements}
@@ -158,7 +155,6 @@ const CardContainer = styled.div`
     border-radius: 10px;
     height: 320px;
     cursor: pointer;
-    
   }
 `;
 
