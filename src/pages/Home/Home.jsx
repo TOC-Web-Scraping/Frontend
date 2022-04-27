@@ -70,13 +70,14 @@ const Item = styled.div`
     bottom: 20px;
     line-height: 0;
     ${(props) => props.position}: 20px;
+    margin:25px
   }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 20px;
   }
 
   &:hover {
