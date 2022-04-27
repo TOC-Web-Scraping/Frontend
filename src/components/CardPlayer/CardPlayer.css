@@ -28,20 +28,15 @@
     font-size: 15px;
     font-weight: normal;
     justify-content: center;
+    margin-top:0px;
 }
 
 .card-container:hover{
     transform: scale(1.01);
 }
 .cardtitle img{
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    background-color: aqua;
-}
-.cardbody img{
-    width: 25px;
-    height: 20px;
-    margin-left: 10px;
-    background-color: aqua;
+    width: 50px;
+   
+    margin-left: 5px;
+    
 }
