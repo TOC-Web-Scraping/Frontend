@@ -74,7 +74,7 @@ function Players() {
 
   const onCardClick = (id) => {
     if (id) {
-      navigate(`/players/${id}`);
+      navigate(`/player/${id}`);
     }
   };
 
