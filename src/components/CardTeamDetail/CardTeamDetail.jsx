@@ -1,6 +1,7 @@
 import React from 'react'
 import './CardTeamDetail.css'
 function CardTeamDetail({team}) {
+  
   return (
     <div className="detail-card-container">
     <div className="detail-image-container">

@@ -3,6 +3,7 @@ import CardSlider from "../../components/CardSlider/CardSlider";
 import { useNavigate } from "react-router-dom";
 import {useMaps} from "../../hooks/useMaps.js"
 import Loader from "../../components/Loader/Loader";
+import BackButton from "../../components/BackButton/BackButton";
 function Maps() {
   const navigate = useNavigate();
   const {
@@ -25,6 +26,7 @@ function Maps() {
   
   return (
     <>
+    <BackButton handleBackClick={() => navigate("/")} />
     <div id="title-map">MAP</div>
     <div id="body">
     {isLoading && <Loader />}
