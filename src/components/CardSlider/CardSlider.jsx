@@ -34,7 +34,7 @@ function CardSlider({maps}) {
                 <img src={map.imageUrl} />
               </div>
               <p className="slider-card-title">{map.mapName}</p>
-              <p className="slider-card-description">{map.description.slice(0, 40)}...</p>
+              <p className="slider-card-description">{map.description.slice(0, 60)}...</p>
           </div>;
         })}
       </div>

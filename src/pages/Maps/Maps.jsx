@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useMaps } from "../../hooks/useMaps.js";
 import Loader from "../../components/Loader/Loader";
 import BackButton from "../../components/BackButton/BackButton";
+import './Map.css'
 
 function Maps() {
   const navigate = useNavigate();
@@ -24,8 +25,8 @@ function Maps() {
       <div id="title-map">MAP</div>
       <div id="body">
         {isLoading && <Loader />}
-
-                  <CardSlider maps={maps} />
+<CardSlider maps={maps} />
+                  
                 
         
         
