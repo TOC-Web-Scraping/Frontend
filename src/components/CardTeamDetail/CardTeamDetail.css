@@ -1,0 +1,21 @@
+.detail-card-container{
+    width: 100% !important; 
+    height: 100% !important;
+}
+.detail-image-container{
+    height: 50% !important; 
+    width: 100%;
+    justify-content: center;
+}
+img{
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+.detail-cardtitle{
+
+}
+.detail-cardbody{
+    margin-left: 35px;
+}

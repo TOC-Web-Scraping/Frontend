@@ -1,5 +1,4 @@
-.card-container{
-    position: absolute;
+.card-team-container{
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -7,36 +6,27 @@
     border-radius: 10px;
     text-align: center;
 }
-.image-container{
+.image-team-container{
     width: 100%;
-    height: 75%;
-    
-}
-.image-container img{
+    height: 80%;
     justify-content: center;
-    width: 100%;
+}
+img{
+    justify-content: center;
+    width: 80%;
     height: 100%;
     padding: 10px;
     object-fit: contain;
 }
-.cardtitle{
+.cardtitle-team{
     font-size: 20px;
     font-weight: bold;
-    justify-content: center;
 }
-.cardbody{
+.cardbody-team{
     font-size: 15px;
     font-weight: normal;
-    justify-content: center;
-    margin-top:0px;
 }
 
 .card-container:hover{
     transform: scale(1.01);
-}
-.cardtitle img{
-    width: 35px;
-   
-    margin-left: 5px;
-    
 }

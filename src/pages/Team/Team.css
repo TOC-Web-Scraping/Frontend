@@ -1,0 +1,11 @@
+.team thead {
+    position: sticky;
+    top: -1px;  /* 0px if you don't have a navbar, but something is required */
+    background: #323949;
+    color: white;
+  }
+.team th {
+    border-style: none;
+    
+}
+

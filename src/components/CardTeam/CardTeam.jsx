@@ -1,13 +1,13 @@
 import React from "react";
-import "./CardTram.css";
-function CardTeam({ title, imageUrl, body }) {
+import "./CardTeam.css";
+function CardTeam({ team }) {
   return (
-    <div className="card-container">
-      <div className="image-container">
-        <img src={imageUrl} />
+    <div className="card-team-container">
+      <div className="image-team-container">
+        <img src={team.logo} />
       </div>
-      <div className="cardtitle">{title}</div>
-      <div className="cardbody">{body}</div>
+      <div className="cardtitle-team">{team.name}</div>
+      <div className="cardbody-team">{team.location}</div>
     </div>
   );
 }

@@ -1,0 +1,25 @@
+.player thead {
+    position: sticky;
+    top: 0px;  /* 0px if you don't have a navbar, but something is required */
+    background: #323949;
+    color: white;
+  }
+  th {
+    position: sticky;
+    top: 0px;
+  }
+  
+  
+
+  .playerAchievement::-webkit-scrollbar {
+      width: 0.5em;
+      height: 0.5em;
+    }
+
+    .playerAchievement::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.352);
+      border-radius: 3px;
+    }
+    .playerAchievement:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
