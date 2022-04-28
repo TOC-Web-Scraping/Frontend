@@ -4,7 +4,7 @@ function CardTeam({ team }) {
   return (
     <div className="card-team-container">
       <div className="image-team-container">
-        <img src={team.logo} />
+        <img alt="team" src={team.logo} />
       </div>
       <div className="cardtitle-team">{team.name}</div>
       <div className="cardbody-team">{team.location}</div>

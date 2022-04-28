@@ -14,7 +14,7 @@ function Map() {
   useEffect(() => {
     let newImgs = [];
     if (map) {
-      map.imageUrl.map((value, id) => {
+      map.imageUrl.forEach((value, id) => {
         newImgs[id] = { value, id };
       });
       setImgs(newImgs);
@@ -38,7 +38,7 @@ function Map() {
         <p>{map?.description}</p>
       </div>
 
-<div className="map-slider">
+      <div className="map-slider">
         <img alt="map" src={wordData.value} />
         <div className="flex_row">
           {imgs.map((data, i) => (
@@ -52,9 +52,7 @@ function Map() {
             </div>
           ))}
         </div>
-      
-</div>
-      
+      </div>
     </div>
   );
 }

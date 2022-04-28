@@ -4,7 +4,7 @@ import "./CardSlider.css";
 import { useNavigate } from "react-router-dom";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
-function CardSlider({maps}) {
+function CardSlider({ maps }) {
   const navigate = useNavigate();
   const onCardClick = (id) => {
     if (id) {
@@ -19,7 +19,7 @@ function CardSlider({maps}) {
     var slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 500;
   };
-  
+
   return (
     <div id="main-slider-container">
       <MdChevronLeft
@@ -29,13 +29,21 @@ function CardSlider({maps}) {
       />
       <div id="slider">
         {maps?.map((map, index) => {
-          return <div className="slider-card" key={map.mapName} onClick={() => onCardClick(map.mapName)}>
+          return (
+            <div
+              className="slider-card"
+              key={map.mapName}
+              onClick={() => onCardClick(map.mapName)}
+            >
               <div className="slider-card-image">
-                <img src={map.imageUrl} />
+                <img alt="card" src={map.imageUrl[0]} />
               </div>
               <p className="slider-card-title">{map.mapName}</p>
-              <p className="slider-card-description">{map.description.slice(0, 60)}...</p>
-          </div>;
+              <p className="slider-card-description">
+                {map.description.slice(0, 60)}...
+              </p>
+            </div>
+          );
         })}
       </div>
       <MdChevronRight

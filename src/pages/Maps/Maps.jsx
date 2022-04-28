@@ -12,7 +12,9 @@ function Maps() {
 
   return (
     <>
-      <div id="title-map">MAP</div>
+      <div className="map-header">
+        <h1 style={{ lineHeight: "0", fontSize: "50px" }}>MAP</h1>
+      </div>
       <div id="body">
         {isLoading && <Loader />}
         <CardSlider maps={maps} />
