@@ -25,7 +25,7 @@ function CardPlayer({ player }) {
         <img src={team?.logo} />
       </div>
       <div className="cardbody">
-        {player.country}
+        {player.country.join(' , ')}
       </div>
     </div>
   );
