@@ -26,7 +26,7 @@ function Player() {
             
           </Col>
           <Col lg="8">
-            <h4 style={{ color: "white" }}>Achievement</h4>
+            <h4 style={{ color: "white" }}>Matches</h4>
             <div
               style={{
                 backgroundColor: "#212129",
