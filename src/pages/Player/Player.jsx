@@ -21,7 +21,7 @@ function Player() {
       <div>Player : {id}</div>
       <Container>
         <Row>
-          <Col lg="4">
+          <Col lg="4" style = {{height:"65vh"}}>
             {player?(<CardPlayerDetail player={player} />):(<></>)}
             
           </Col>
@@ -35,6 +35,7 @@ function Player() {
                 overflow: "auto",
                 overflowX: "hidden"
               }}
+              className="playerAchievement"
             >
                 <Table
                   striped
@@ -75,8 +76,7 @@ function Player() {
                   </tbody>
                 </Table>
             </div>
-
-            <h4 style={{ color: "white", marginTop: "10px" }}>Hardware</h4>
+            {player?.gamingGear?.mouse ?(<><h4 style={{ color: "white", marginTop: "10px" }}>Hardware</h4>
             <Card
               style={{
                 backgroundColor: "#c4c4c4",
@@ -106,7 +106,8 @@ function Player() {
                   {player?.gamingGear?.headset?.name}
                 </p>
               </Container>
-            </Card>
+            </Card></>):(<></>)}          
+            
           </Col>
         </Row>
       </Container>
