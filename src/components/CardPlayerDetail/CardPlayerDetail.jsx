@@ -10,9 +10,9 @@ function CardPlayerDetail({player}) {
     <div className="detail-cardbody">
     <b>Name : </b>{player.realName}<br/>
     <b>Born : </b>{player.born}<br/>
-    <b>Country : </b>{player.country}<br/>
+    <b>Country : </b>{player.country.join(' , ')}<br/>
     <b>Team : </b>{player.team}<br/>
-    <b>Main Agents : </b>{player.mainAgent}<br/>
+    <b>Main Agents : </b>{player.mainAgent.join(' , ')}<br/>
     </div>
   </div>
   )
