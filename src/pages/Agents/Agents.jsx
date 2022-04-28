@@ -213,7 +213,7 @@ const Container = styled.div`
   width: 95%;
   position: relative;
   display: block;
-  alignitems: "center";
+  align-items: "center";
 `;
 
 const AgentImage = styled.img`
