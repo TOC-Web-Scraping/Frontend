@@ -12,6 +12,7 @@ function CardTeamDetail({team}) {
     <b>Location : </b>{team.location}<br/>
     <b>Region : </b>{team.region}<br/>
     <b>Total Winnings: </b>{team.totalWinnings}<br/>
+    <b>Team Winrate: </b>{team.winrate.slice(0,4)}<br/>
     </div>
   </div>
   )

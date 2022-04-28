@@ -26,7 +26,7 @@ function Player() {
             
           </Col>
           <Col lg="8">
-            <h4 style={{ color: "white" }}>Matches</h4>
+            <h3 style={{ color: "white" }}>Match</h3>
             <div
               style={{
                 backgroundColor: "#212129",
@@ -76,7 +76,7 @@ function Player() {
                   </tbody>
                 </Table>
             </div>
-            {player?.gamingGear?.mouse ?(<><h4 style={{ color: "white", marginTop: "10px" }}>Hardware</h4>
+            {player?.gamingGear?.mouse ?(<><h3 style={{ color: "white", marginTop: "10px" }}>Hardware</h3>
             <Card
               style={{
                 backgroundColor: "#c4c4c4",
