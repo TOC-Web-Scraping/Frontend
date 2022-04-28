@@ -236,46 +236,35 @@ const RowWrapper = styled.div`
 `;
 
 const AgentFlowBox = styled.div`
-
-&::-webkit-scrollbar {
-  color: #fff
-  width: 0.5em;
-  height: 0.5em;
-}
-
-&::-webkit-scrollbar-thumb {
-  background-color: rgba(128, 128, 128, 0.352);
-  border-radius: 3px;
-  &:hover {
-    background: rgba(256, 256, 256, 0.352);
+  &::-webkit-scrollbar {
+    color: #fff;
+    width: 0.5em;
+    height: 0.5em;
   }
-}
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.352);
+    border-radius: 3px;
+    &:hover {
+      background: rgba(256, 256, 256, 0.352);
+    }
+  }
 `;
 
 const AgentDesPanel = styled.div`
-&::-webkit-scrollbar {
-  color: #fff
-  width: 0.5em;
-  height: 0.5em;
-}
-
-&::-webkit-scrollbar-thumb {
-  background-color: rgba(128, 128, 128, 0.352);
-  border-radius: 3px;
-  &:hover {
-    background: rgba(255, 255, 255, 0.352);
+  &::-webkit-scrollbar {
+    color: #fff;
+    width: 0.5em;
+    height: 0.5em;
   }
-}
-`;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
 
-//   @media (max-width: 765px) {
-//     flex-direction: row;
-//     height: 10vh;
-//     align-items: center;
-//   }
-// `
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.352);
+    border-radius: 3px;
+    &:hover {
+      background: rgba(255, 255, 255, 0.352);
+    }
+  }
+`;
 
 export default Agents;
