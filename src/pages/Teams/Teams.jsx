@@ -11,7 +11,7 @@ import CardTeam from "../../components/CardTeam/CardTeam";
 
 function Teams() {
   const [search, setSearch] = useState("");
-  const debouncedSearch = useDebounce(search, 500);
+  const debouncedSearch = useDebounce(search, 1000);
   const { data: teams, isLoading, error, isError } = useTeams(debouncedSearch);
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();

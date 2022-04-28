@@ -9,9 +9,6 @@ import { Pagination } from "react-bootstrap";
 import BackButton from "../../components/BackButton/BackButton";
 import CardPlayer from "../../components/CardPlayer/CardPlayer";
 
-
-
-
 function Players() {
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 1000);
